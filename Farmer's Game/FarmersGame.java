@@ -141,10 +141,16 @@ public class FarmersGame
 	public static void move()
 	{
 		Scanner kb = new Scanner(System.in);
-		System.out.println("Who would you like to move across. Enter just the first letter: ");
+		System.out.println("Who would you like to move across. Enter just the first letter in upper case: ");
 		String input = kb.nextLine();
 		
-		if (input.equals("C")|| input.equals("c")) 
+		if ((!input.equals("S"))&&(!input.equals("C"))&&(!input.equals("W"))&&(!input.equals("H")))
+		{
+			System.out.println("Invalid Input. ");
+			move();
+		}
+		
+		if (input.equals("C")) 
 		{
 			if (human == cabb) //makes sure that human and cabbage are on the same side
 			{
@@ -160,7 +166,7 @@ public class FarmersGame
 		}		
 		
 		
-		if (input.equals("S")|| input.equals("s")) 
+		if (input.equals("S")) 
 		{
 			if (human == sheep) //makes sure that human and sheep are on the same side
 			{
@@ -176,7 +182,7 @@ public class FarmersGame
 		}
 		
 		
-		if (input.equals("W")|| input.equals("w")) 
+		if (input.equals("W")) 
 		{
 			if (human == wolf) //makes sure that human and cabbage are on the same side
 			{
@@ -193,11 +199,13 @@ public class FarmersGame
 		
 		
 		
-		if (input.equals("H")|| input.equals("h"))
+		if (input.equals("H"))
 		{
 			human = !human;
 			
 		}		
+		
+	
 			
 	}
 	
