@@ -17,22 +17,22 @@ public class CheckDigit
 	
 	System.out.println("Recursive Is Palindrome without charAt examples");
 	System.out.println(isPalindrome1("racecar"));
-	System.out.println(isPalindrome(""));
-	System.out.println(isPalindrome(" "));
+	System.out.println(isPalindrome1(""));
+	System.out.println(isPalindrome1(" "));
 	System.out.println(isPalindrome1("no"));
 	System.out.println();
 	
 	System.out.println("Iterative is palindrome with charAt examples");
 	System.out.println(isPalindrome2("racecar"));
-	System.out.println(isPalindrome(""));
-	System.out.println(isPalindrome(" "));
+	System.out.println(isPalindrome2(""));
+	System.out.println(isPalindrome2(" "));
 	System.out.println(isPalindrome2("no"));
 	System.out.println();
 	
 	System.out.println("Iterative is palindrome without charAt examples");
 	System.out.println(isPalindrome3("racecar"));
-	System.out.println(isPalindrome(""));
-	System.out.println(isPalindrome(" "));
+	System.out.println(isPalindrome3(""));
+	System.out.println(isPalindrome3(" "));
 	System.out.println(isPalindrome3("no"));
 	System.out.println();
 	}
