@@ -37,7 +37,13 @@ public class CheckDigit
 	System.out.println();
 	}
 	
-	
+	/**
+	* This methods takes in a String and returns true if it has
+	* a digit. It uses ASCII numbers to check whether the given
+	* String has a digit.
+	* @param s The String to check whether it has a digit
+	* @return boolean true if the String has a digit, false otherwise
+	*/
 	public static boolean hasDigit(String s)
 	{ //typecast into ascii and check if it is in the ascii range
 		boolean found = false;
