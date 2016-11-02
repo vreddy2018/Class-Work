@@ -1,3 +1,9 @@
+/**
+* String Methods
+* @author Neil
+* This program has different methods that act upon strings
+*/
+
 public class StringMethods 
 
 {

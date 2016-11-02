@@ -1,3 +1,8 @@
+/**
+* Check Digits
+* @author Neil
+* This program has methods that check to see if a word is a palindrome
+*/
 public class CheckDigit
 {
 	
