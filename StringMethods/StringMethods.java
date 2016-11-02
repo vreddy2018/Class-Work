@@ -19,6 +19,8 @@ public class StringMethods
 		System.out.println(convertItalics("_This_ is _very_ _good_."));
 		System.out.println(convertItalics("This is _very good." ));
 		System.out.println(convertItalics("This is __very good."));
+		System.out.println(convertItalics("This is ____very good."));
+		System.out.println(convertItalics("This is ____very good.__"));
 	}
 	
 /**
@@ -90,7 +92,7 @@ public class StringMethods
  			for(int character = 0; character<line.length();character++)
  			{
  				
- 				if (line.charAt(character) == '_')
+ 				if (line.charAt(character) == '_') //line.charAt(character+1) != '_' 
  				{
  					
  					if ((italicsCount%2) == 0)
@@ -120,8 +122,22 @@ public class StringMethods
  			return line;
  		
  		}
+ 		
+ 		int repeat = countStrings (line, "<I></I>");
+ 		if (repeat >0)
+ 		{
+ 			for (int i = 0; i<repeat; i++)
+ 			{
+				int start = findString(line, "<I></I>", 0);
+				if (start >0)
+				{
+					line = line.substring(0,start) + "__" + line.substring(start+7);
+				}
+			}
+ 		}
+ 		
  		return line;
- 	
+ 		
  	
  	}
 	
