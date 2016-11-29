@@ -1,8 +1,8 @@
 public class TwoDArrayPractice
 {
 	/**
-	* Purpose: This method creates a 4x4 array filled with a count
-	* This method works by creating a 4x4 array and then uses 2 For loops to 
+	* Purpose: This method creates a nxn array filled with a count
+	* This method works by creating a nxn array and then uses 2 For loops to 
 	* put a count into the array. 
 	* @return array - the array with the count 
 	* @param n - the dimensions of the grid
