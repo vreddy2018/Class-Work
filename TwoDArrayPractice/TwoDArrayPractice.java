@@ -10,11 +10,11 @@ public class TwoDArrayPractice
 	{
 		int [][]array = new int[4][4];
 		int count = 1;
-		for (int i=0;i<array.length;i++)
+		for (int row=0;row<array.length;row++)
 		{
-			for (int j=0;j<array[i].length;j++)
+			for (int col=0;col<array[row].length;col++)
 			{
-				array[i][j] = count;
+				array[row][col] = count;
 				count ++;
 			}
 		}
