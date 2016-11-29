@@ -5,10 +5,11 @@ public class TwoDArrayPractice
 	* This method works by creating a 4x4 array and then uses 2 For loops to 
 	* put a count into the array. 
 	* @return array - the array with the count 
+	* @param n - the dimensions of the grid
 	*/
-	public static int[][] createArray()
+	public static int[][] createArray(int n)
 	{
-		int [][]array = new int[4][4];
+		int [][]array = new int[n][n];
 		int count = 1;
 		for (int row=0;row<array.length;row++)
 		{
@@ -25,7 +26,8 @@ public class TwoDArrayPractice
 
 	public static void main (String[] args)
 	{
-		printArray(createArray());
+		printArray(createArray(3));
+		printArray(createArray(5));
 	}
 
 
