@@ -16,7 +16,7 @@ public class TicTacToeWorking
 		printArray(board);
 		int countMoves = 0;
 		
-		while (checkRow(board) == false && checkCol(board) == false && checkDiagonal(board) == false && countMoves<board.length*board.length)
+		while (checkRow(board) == false && checkCol(board) == false && checkDiagonal(board) == false && countMoves<board.length*board.length && checkOppDiagonal(board) == false)
 		{
 			playMove(getMove(), board, player);
 			printArray(board);
@@ -79,6 +79,14 @@ public class TicTacToeWorking
 		return input;
 	}
 	
+	
+	/**
+	* Purpose: This method takes in the user's choice and places the move on the board
+	* This method works by finding the user's choice and replacing it with their tile
+	* @param String userChoice - the user's move
+	* @param String [][] board - the game board
+	* @param boolean Player  - the player who's turn it is
+	*/
 	public static void playMove(String userChoice, String[][]board, boolean player)
 	{
 		for (int row = 0; row<board.length;row++)
@@ -100,6 +108,16 @@ public class TicTacToeWorking
 		}
 	}
 	
+	
+	/**
+	* Purpose: This method checks each row to see if someone has one
+	* It works by comparing the tile in the first column of the row to the tile in the next column
+	* to see if they are the same and compares til the end of the row if they are the same.
+	* If everything is the same true is returned, if there is a difference false is returned.
+	* @param String [] [] board - the game board
+	* @return boolean true - if the game is over
+	* @return boolean false - if there is no winner yet
+	*/
 	public static boolean checkRow(String[][] board)
 	{
 		boolean rowWin = false;
@@ -125,6 +143,16 @@ public class TicTacToeWorking
 		return false;
 	}	
 	
+	
+	/**
+	* Purpose: This method checks each column to see if someone has one
+	* It works by comparing the tile in the first row of the column to the tile in the next row
+	* to see if they are the same and compares til the end of the column if they are the same.
+	* If everything is the same true is returned, if there is a difference false is returned.
+	* @param String [] [] board - the game board
+	* @return boolean true - if the game is over
+	* @return boolean false - if there is no winner yet
+	*/
 	public static boolean checkCol(String[][] board)
 	{
 		boolean colWin = false;
@@ -147,6 +175,15 @@ public class TicTacToeWorking
 		return false;
 	}
 	
+	/**
+	* Purpose: This method checks to see if someone has one by the diagonal from top left
+	* to bottom right. The first diagonal is [0,0] and the next is [1,1] etc., so the method
+	* keeps checking the positions at the same [row][column] value.
+	* If everything is the same true is returned, if there is a difference false is returned.
+	* @param String [] [] board - the game board
+	* @return boolean true - if the game is over
+	* @return boolean false - if there is no winner yet
+	*/
 	public static boolean checkDiagonal (String[][] board)
 	{
 		for (int row = 0; row < board.length - 1; row++)
@@ -161,6 +198,26 @@ public class TicTacToeWorking
 			}
 		}
 	
+		return true;
+	}
+	
+	public static boolean checkOppDiagonal (String[][] board)
+	{
+		boolean diag = false;
+		int row = board.length-1;
+		int col = 0;
+		while (col<board.length-1)
+		{
+			if (row-1 == 0)
+				return true;
+			else if (board[row][col].compareTo(board[row-1][col+1])==0)
+			{
+				col++;
+				row--;
+			}
+			else
+				return false;
+		}
 		return true;
 	}
 }
