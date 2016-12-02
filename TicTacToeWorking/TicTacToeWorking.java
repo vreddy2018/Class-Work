@@ -208,9 +208,7 @@ public class TicTacToeWorking
 		int col = 0;
 		while (col<board.length-1)
 		{
-			if (row == 0)
-				return true;
-			else if (board[row][col].compareTo(board[row-1][col+1])==0)
+			if (board[row][col].compareTo(board[row-1][col+1])==0)
 			{
 				col++;
 				row--;
