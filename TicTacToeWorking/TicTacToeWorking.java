@@ -76,6 +76,17 @@ public class TicTacToeWorking
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Where would you like to play? : ");
 		String input = kb.nextLine();
+		if (input.length()>1)
+		{
+			System.out.println("Invalid move.");
+			return getMove();
+		}
+		if (input.charAt(0)<49||input.charAt(0)>57)
+		{
+			System.out.println("Invalid move.");
+			return getMove();
+		}
+		
 		return input;
 	}
 	
@@ -89,12 +100,14 @@ public class TicTacToeWorking
 	*/
 	public static void playMove(String userChoice, String[][]board, boolean player)
 	{
+		boolean foundSpot = false;
 		for (int row = 0; row<board.length;row++)
 		{
 			for (int col = 0; col<board[row].length; col++)
 			{	
 				if(board[row][col].compareTo(userChoice)==0)
 				{
+					foundSpot = true;
 					if (player == true)
 					{
 						board[row][col] = "x";
@@ -106,6 +119,12 @@ public class TicTacToeWorking
 				}
 			}
 		}
+		if (foundSpot == false)
+		{
+			System.out.println("Spot not available");
+			playMove(getMove(), board, player);
+		}
+		
 	}
 	
 	
