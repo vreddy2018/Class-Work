@@ -174,7 +174,7 @@ public class TicTacToeWorking
 	*/
 	public static boolean checkCol(String[][] board)
 	{
-		boolean colWin = false;
+		boolean colWin = true;
 		for (int row = 0; row<board.length-1;row++)
 		{
 			for (int col = 0; col<board[row].length; col++)
@@ -195,7 +195,7 @@ public class TicTacToeWorking
 	}
 	
 	/**
-	* Purpose: This method checks to see if someone has one by the diagonal from top left
+	* Purpose: This method checks to see if someone has won by the diagonal from top left
 	* to bottom right. The first diagonal is [0,0] and the next is [1,1] etc., so the method
 	* keeps checking the positions at the same [row][column] value.
 	* If everything is the same true is returned, if there is a difference false is returned.
@@ -220,6 +220,15 @@ public class TicTacToeWorking
 		return true;
 	}
 	
+	/**
+	* Purpose: This method checks to see if someone has won by the diagonal from bottom left
+	* to topright. The first diagonal is [2,0] and the next is [1,1] etc., so the method
+	* decrements the row and increases the column.
+	* If everything is the same true is returned, if there is a difference false is returned.
+	* @param String [] [] board - the game board
+	* @return boolean true - if the game is over
+	* @return boolean false - if there is no winner yet
+	*/
 	public static boolean checkOppDiagonal (String[][] board)
 	{
 		boolean diag = false;
