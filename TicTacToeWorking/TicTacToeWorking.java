@@ -15,11 +15,17 @@ public class TicTacToeWorking
 		String[][]board = initBoard(3);
 		printArray(board);
 		int countMoves = 0;
+		String playerTile = "";
 		
-		while (checkRow(board) == false && checkCol(board) == false && checkDiagonal(board) == false && countMoves<board.length*board.length && checkOppDiagonal(board) == false)
+		while (checkRow(board) == false && checkCol(board, playerTile) == false && checkDiagonal(board) == false && countMoves<board.length*board.length && checkOppDiagonal(board) == false)
 		{
 			playMove(getMove(), board, player);
 			printArray(board);
+			
+			if (player == true)
+				playerTile = "x";
+			else
+				playerTile = "o";
 			player = !player;
 			countMoves++;
 		}
@@ -165,28 +171,29 @@ public class TicTacToeWorking
 	
 	/**
 	* Purpose: This method checks each column to see if someone has one
-	* It works by comparing the tile in the first row of the column to the tile in the next row
-	* to see if they are the same and compares til the end of the column if they are the same.
-	* If everything is the same true is returned, if there is a difference false is returned.
+	* It works by comparing the tile in the first row of the column to the players tile.
+	* If they are the same the count is increment.
+	* If the count reaches the end of the board true is returned.
+	* if there is a difference false is returned.
 	* @param String [] [] board - the game board
+	* @param String tile - the user's tile
 	* @return boolean true - if the game is over
 	* @return boolean false - if there is no winner yet
 	*/
-	public static boolean checkCol(String[][] board)
+	public static boolean checkCol(String[][] board, String tile)
 	{
-		boolean colWin = true;
-		for (int row = 0; row<board.length-1;row++)
+		for (int col = 0; col<board.length;col++)
 		{
-			for (int col = 0; col<board[row].length; col++)
+			int count = 0;
+			for (int row = 0; row<board[col].length; row++)
 			{	
-				if(board[row][col].compareTo(board[row+1][col])==0)
+				
+				if(board[row][col].compareTo(tile)==0)
 				{
-					colWin = true; //so far it is true
-					row++;
-					col--;
+					count++;
 				}
-				if (colWin == true && row+1 >= board.length)
-				{
+				if (count == board.length)
+				{	
 					return true;
 				}
 			}
